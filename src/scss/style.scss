@@ -1,0 +1,186 @@
+@import 'common/_font&color';
+@import 'common/_responsive';
+@import 'common/destyle';
+
+//-------------------------------
+//  All-page-common-css
+//-------------------------------
+
+//IEのみテキストをメイリオに変更
+@media all and (-ms-high-contrast:none){
+    html{
+        font-family: $font-ie;
+    }
+}
+html{
+    font-family: $font;
+    /*
+    計算式：10px /  デザインカンプの横幅 * 100
+    画面サイズがデザインカンプ幅の時font-size = 10pxになる
+    */
+    font-size: calc(10 / 1920 * 100) + vw;
+    @include pc{
+        font-size: calc(10 / 1200 * 100) + vw;
+    }
+    @include tab{
+        font-size: calc(10 / 768 * 100) + vw;
+    }
+    @include sp{
+        font-size: calc(10 / 375 * 100) + vw;
+    }
+}
+body{
+    width: 100%;
+    font-size: 1.6rem;
+    position: relative;
+    background-image: url('../images/background.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    &.fixed{
+        position: fixed;
+    }
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+img[src$=".svg"]{
+    width: 100%;
+    height: auto;
+}
+.wrapper{
+    width: 100%;
+    overflow: hidden;
+}
+.container{
+    width: 1168px;
+    margin: 0 auto;
+    @include pc-tab{
+        width: 84vw;
+    }
+    @include tab{
+        width: 84vw;
+    }
+}
+.br-pc{
+    @include tab{
+        display: none
+    }
+}
+.br-sp{
+    display: none;
+    @include sp{
+        display: block;
+    }
+}
+//-------------------------------
+//  Logo
+//-------------------------------
+.logo{
+    width: 368px;
+    @include pc{
+        width: 36.8rem;
+    }
+    @include tab{
+        width: 24.8rem;
+    }
+}
+
+//-------------------------------
+//  Section-margin
+//-------------------------------
+.section-margin{
+    margin-bottom: 80px;
+    @include pc{
+        margin-bottom: 8rem;
+    }
+    &_size_s{
+        margin-bottom: 40px;
+        @include pc{
+            margin-bottom: 4rem;
+        }
+    }
+}
+
+//-------------------------------
+//  Contents
+//-------------------------------
+.contents{
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+//-------------------------------
+//  Main
+//-------------------------------
+.main{
+    width: 868px;
+    @include pc{
+        width: 100%;
+    }
+}
+
+//-------------------------------
+//  h2
+//-------------------------------
+@import '_h2.scss';
+
+//-------------------------------
+//  link-btn
+//-------------------------------
+@import '_link-btn.scss';
+
+//-------------------------------
+//  header
+//-------------------------------
+@import 'header/_header.scss';
+
+//-------------------------------
+//  main-visual
+//-------------------------------
+@import '_mainvisual.scss';
+
+// Swiperの上書き用CSS
+@import '_swiper.scss';
+
+//-------------------------------
+//  News
+//-------------------------------
+@import '_news.scss';
+
+//-------------------------------
+//  Type-select
+//-------------------------------
+@import '_type-select.scss';
+
+//////  Blog  ///////////////////
+@import 'main/_blog.scss';
+
+//////  sub-navigation  ////////
+@import 'main/_sub-navigation.scss';
+
+//////  tourism-info  //////////
+@import 'main/_tourism-info.scss';
+
+//////  SNS-field  ////////////
+@import 'main/_sns.scss';
+
+//-------------------------------
+//  Sidebar
+//-------------------------------
+@import 'aside/_sidebar.scss';
+
+//-------------------------------
+//  Footer
+//-------------------------------
+@import 'footer/_footer.scss';
+
+//-------------------------------
+//  Floating
+//-------------------------------
+@import 'footer/_floating.scss';
